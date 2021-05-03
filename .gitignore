@@ -52,3 +52,6 @@ buck-out/
 # Expo
 .expo/
 web-build/
+
+#extra
+run.bat

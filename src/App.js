@@ -7,6 +7,13 @@ x = 1
 
 export default function App() {
   return (
+
+    function changecolor(color) {
+      let newcolor;
+      newcolor = '';
+      newcolor=color;
+      return newcolor;
+  }
     <View style={styles.container}>
       <Text>Making another change to test asdfthings!</Text>
       <TextInput onKeyPress={ nativeEvent: { key: 'Enter' } }>

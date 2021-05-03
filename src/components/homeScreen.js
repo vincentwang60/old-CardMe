@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, StatusBar } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text style = {styles.welcomeText}>Making another change to test things!</Text>
+      <Text style = {styles.welcomeText}>Making another asdfadf to test things!</Text>
       <StatusBar
         barStyle = "light-content"
         backgroundColor = '#000'/>
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   welcomeText: {
-    fontFamily: arial,
+    //fontFamily: arial,
     color: '#fff'
   }
 });

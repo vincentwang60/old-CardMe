@@ -16,7 +16,7 @@ export default function App() {
   else{
     return (
       <View style={styles.container}>
-        <Text style = {[styles.welcomeText, {fontFamily: 'Inter_300Light'}]}>Quick brown fox</Text>
+        <Text style = {[styles.welcomeText]}>Quick brown fox</Text>
         <StatusBar
           barStyle = "light-content"
           backgroundColor = '#000'/>
@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
   },
   welcomeText: {
     fontSize: 24,
-    color: '#fff'
+    color: '#fff',
+    fontFamily: 'Inter_300Light'
   }
 });

@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 let x;
-x = 1
+x = ''
 
 export default function App() {
   return (
@@ -13,6 +13,7 @@ export default function App() {
       newcolor = '';
       newcolor=color;
       return newcolor;
+      x=newcolor
   }
     <View style={styles.container}>
       <Text>Making another change to test asdfthings!</Text>

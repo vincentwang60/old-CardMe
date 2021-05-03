@@ -13,7 +13,7 @@ export default function App() {
       newcolor = '';
       newcolor=color;
       return newcolor;
-      x=newcolor
+      x=newcolor;
   }
     <View style={styles.container}>
       <Text>Making another change to test asdfthings!</Text>

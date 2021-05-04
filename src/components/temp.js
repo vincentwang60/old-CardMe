@@ -1,22 +1,14 @@
 import React, { useState, useEffect }  from 'react';
-import { StyleSheet, Text, Button, View, StatusBar } from 'react-native';
-import  AppLoading from 'expo-app-loading';
+import { StyleSheet, Text, View, StatusBar } from 'react-native';
 import {
   useFonts,
   Inter_300Light,
 } from '@expo-google-fonts/inter';
 
-export default function homeScreen( {navigation }) {
-  const pressHandler = () => {
-    navigation.navigate('Temp')
-  }
+export default function temp() {
   return (
     <View style={styles.container}>
-      <Text style = {[styles.welcomeText]}>Quick brown fox jumps over</Text>
-      <Button
-        title="Press me"
-        onPress={pressHandler}
-      />
+      <Text style = {[styles.welcomeText]}>Temp screen</Text>
       <StatusBar
         barStyle = "light-content"
         backgroundColor = '#000'/>

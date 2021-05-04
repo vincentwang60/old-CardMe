@@ -1,5 +1,5 @@
 import React, { useState, useEffect }  from 'react';
-import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import { StyleSheet, Text, Button, View, StatusBar } from 'react-native';
 import  AppLoading from 'expo-app-loading';
 import {
   useFonts,
@@ -17,6 +17,10 @@ export default function App() {
     return (
       <View style={styles.container}>
         <Text style = {[styles.welcomeText]}>Quick brown fox</Text>
+        <Button
+          title="Press me"
+          onPress={() => Console.log('test')}
+        />
         <StatusBar
           barStyle = "light-content"
           backgroundColor = '#000'/>

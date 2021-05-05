@@ -3,17 +3,33 @@ import { createAppContainer } from 'react-navigation';
 import homeScreen from '../components/homeScreen';
 import temp from '../components/temp';
 
-const screens = {
-  Home: {
-    screen: homeScreen,
-  },
-  Temp: {
-    screen: temp,
-  },
+const { Navigator, Screen } = createStackNavigator();
 
-};
+export const HomeStack = ({ navigation }) => (
+  <Navigator
+    // headerMode='screen' //default option
+    initialRouteName='homeScreen'
+    screenOptions={{
+      gestureEnabled: false,
+      headerTintColor: '#444',
+      headerStyle: { backgroundColor: '#de1', height: 70 },
+      headerTitleStyle: { fontWeight: 'bold' },
+      headerTitleAlign: 'center',
+    }}>
+    <Screen
+      name='homeScreen'
+      component={homeScreen}
+      options={{
+        headerTitle: () => <Header title='asdf' navigation={navigation} />,
+      }}
+    />
 
-// home stack navigator screens
-const HomeStack = createStackNavigator(screens);
-
-export default createAppContainer(HomeStack);
+    <Screen
+      name='temp'
+      component={temp}
+      options={{
+        title: 'temp',
+      }}
+    />
+  </Navigator>
+);

@@ -8,7 +8,7 @@ import {
 
 export default function homeScreen( {navigation }) {
   const pressHandler = () => {
-    navigation.navigate('Temp')
+    navigation.navigate('Temp Screen')
   }
   return (
     <View style={styles.container}>

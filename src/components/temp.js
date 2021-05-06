@@ -12,21 +12,45 @@ Amplify.configure(AWSConfig)
 
 export default function temp() {
   const [username, setUsername] = useState('');
-  function signUp(gUsername)  {
-    console.log(gUsername);
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  function signUp(gUsername, gPassword, gEmail)  {
+    Auth.signUp({
+      username: gUsername,
+      password: gPassword,
+      attributes: {
+        email: gEmail
+      }
+    })
+    .then(()=>console.log('success!'))
+    .catch(err=> console.log('error!',err))
   }
   return (
     <View style={styles.container}>
       <TextInput
         label="Username"
-        placeholder="empty"
+        placeholder="Set Username"
         value={username}
         onChangeText={(text) => setUsername(text)}
         style={styles.welcomeText}
       />
-    <TouchableOpacity onPress={() => signUp(username)}>
+      <TextInput
+        label="Password"
+        placeholder="Set Password"
+        value={password}
+        onChangeText={(text) => setPassword(text)}
+        style={styles.welcomeText}
+      />
+      <TextInput
+        label="Email"
+        placeholder="Set Email"
+        value={email}
+        onChangeText={(text) => setEmail(text)}
+        style={styles.welcomeText}
+      />
+    <TouchableOpacity onPress={() => signUp(username, password, email)}>
          <Text style = {[styles.buttonText]}>
-             Login
+             Sign Up
          </Text>
       </TouchableOpacity >
       <StatusBar

@@ -8,7 +8,7 @@ import {
 export default function temp() {
   return (
     <View style={styles.container}>
-      <Text style = {[styles.welcomeText]}>Temp screen</Text>
+      <Text style = {[styles.welcomeText]}>Temp text</Text>
       <StatusBar
         barStyle = "light-content"
         backgroundColor = '#000'/>

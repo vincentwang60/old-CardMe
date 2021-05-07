@@ -5,25 +5,16 @@ import {
   Inter_300Light,
 } from '@expo-google-fonts/inter';
 
-import Amplify, { Auth } from "aws-amplify"
-import AWSConfig from '../../aws-exports'
-Amplify.configure(AWSConfig)
+import { Auth } from 'aws-amplify'
 
-
-export default function temp() {
+export default function temp( {navigation} ) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [email, setEmail] = useState('');
-  function signUp(gUsername, gPassword, gEmail)  {
-    Auth.signUp({
-      username: gUsername,
-      password: gPassword,
-      attributes: {
-        email: gEmail
-      }
-    })
+  function signIn(username, password)  {
+    Auth.signIn(username, password)
     .then(()=>console.log('success!'))
     .catch(err=> console.log('error!',err))
+    navigation.navigate('Input Screen')
   }
   return (
     <View style={styles.container}>
@@ -41,16 +32,9 @@ export default function temp() {
         onChangeText={(text) => setPassword(text)}
         style={styles.welcomeText}
       />
-      <TextInput
-        label="Email"
-        placeholder="Set Email"
-        value={email}
-        onChangeText={(text) => setEmail(text)}
-        style={styles.welcomeText}
-      />
-    <TouchableOpacity onPress={() => signUp(username, password, email)}>
+    <TouchableOpacity onPress={() => signIn(username, password)}>
          <Text style = {[styles.buttonText]}>
-             Sign Up
+             Log in
          </Text>
       </TouchableOpacity >
       <StatusBar

@@ -1,0 +1,5 @@
+type Data @model {
+  id: ID!
+  title: String!
+  description: String
+}

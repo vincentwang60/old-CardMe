@@ -9,7 +9,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import homeScreen from './src/components/homeScreen';
-import temp from './src/components/temp';
+import signUpScreen from './src/components/signUpScreen';
+import logInScreen from './src/components/logInScreen';
+import inputScreen from './src/components/inputScreen';
 
 const Stack = createStackNavigator();
 
@@ -29,7 +31,9 @@ function MyStack() {
       }}
     >
       <Stack.Screen name="Home Screen" component={homeScreen} />
-      <Stack.Screen name="Temp Screen" component={temp} />
+      <Stack.Screen name="Sign Up Screen" component={signUpScreen} />
+      <Stack.Screen name="Log In Screen" component={logInScreen} />
+      <Stack.Screen name="Input Screen" component={inputScreen} />
     </Stack.Navigator>
   );
 }

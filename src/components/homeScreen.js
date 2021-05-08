@@ -8,7 +8,7 @@ import {
 
 export default function homeScreen( {navigation }) {
   const pressHandler = () => {
-    navigation.navigate('Log In Screen')
+    navigation.navigate('Sign Up Screen')
   }
   return (
     <View style={styles.container}>

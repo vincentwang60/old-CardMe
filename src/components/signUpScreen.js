@@ -9,11 +9,14 @@ import Amplify, { Auth } from "aws-amplify"
 import AWSConfig from '../../aws-exports'
 Amplify.configure(AWSConfig)
 
-
 export default function temp( {navigation} ) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
+  const [confirmationCode, setConfirmationCode] = useState('');
+  function skip() {
+    navigation.navigate('Log In Screen')
+  }
   function signUp(gUsername, gPassword, gEmail)  {
     Auth.signUp({
       username: gUsername,
@@ -22,9 +25,18 @@ export default function temp( {navigation} ) {
         email: gEmail
       }
     })
-    .then(()=>console.log('success!'))
+    .then(()=>{
+      console.log('success!');
+    })
     .catch(err=> console.log('error!',err))
-    navigation.navigate('Log In Screen')
+  }
+  function confirmSignUp(gUsername, gConfirmationCode) {
+    Auth.confirmSignUp(gUsername, gConfirmationCode)
+    .then(()=>{
+      console.log('confirm success!');
+      navigation.navigate('Log In Screen')
+    })
+    .catch(err=> console.log('confirm error!',err))
   }
   return (
     <View style={styles.container}>
@@ -49,9 +61,26 @@ export default function temp( {navigation} ) {
         onChangeText={(text) => setEmail(text)}
         style={styles.welcomeText}
       />
-    <TouchableOpacity onPress={() => signUp(username, password, email)}>
+      <TouchableOpacity onPress={() => signUp(username, password, email)}>
+       <Text style = {[styles.buttonText]}>
+           Sign Up
+       </Text>
+      </TouchableOpacity >
+      <TextInput
+        label="Confirmation Code"
+        placeholder="Enter Confirmation Code"
+        value={confirmationCode}
+        onChangeText={(text) => setConfirmationCode(text)}
+        style={styles.welcomeText}
+      />
+    <TouchableOpacity onPress={() => confirmSignUp(username, confirmationCode)}>
          <Text style = {[styles.buttonText]}>
-             Sign Up
+             Confirm
+         </Text>
+      </TouchableOpacity >
+      <TouchableOpacity onPress={() => skip()}>
+         <Text style = {[styles.buttonText]}>
+             Skip
          </Text>
       </TouchableOpacity >
       <StatusBar
